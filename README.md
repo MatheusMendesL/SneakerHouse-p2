@@ -53,7 +53,7 @@ Documentação completa: [docs/EXECUCAO.md](docs/EXECUCAO.md)
 | Serviço | URL |
 |---------|-----|
 | Frontend | http://localhost:4200 |
-| API | http://localhost:8080/api |
+| API | http://localhost:9032/api |
 | Swagger | http://localhost:8080/swagger-ui.html |
 
 ## Design

@@ -42,8 +42,8 @@ cd backend
 mvn spring-boot:run
 ```
 
-- API: http://localhost:8080/api
-- Swagger: http://localhost:8080/swagger-ui.html
+- API: http://localhost:9032/api
+- Swagger: http://localhost:9032/swagger-ui.html
 
 Na primeira execução, o sistema cria as tabelas e insere **3 tênis**.
 
