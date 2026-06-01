@@ -1,0 +1,78 @@
+<div class="container py-4 pb-5">
+  <h2 class="page-title">Carrinho</h2>
+
+  <div *ngIf="itens.length === 0" class="text-center py-5">
+    <p class="text-muted fs-5">Seu carrinho está vazio.</p>
+    <a routerLink="/" class="btn btn-sh-primary mt-3">Continuar Comprando</a>
+  </div>
+
+  <div *ngIf="itens.length > 0">
+    <div class="table-responsive bg-white rounded shadow-sm">
+      <table class="table table-hover mb-0 align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Produto</th>
+            <th>Preço</th>
+            <th>Qtd</th>
+            <th>Subtotal</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of itens">
+            <td>
+              <div class="d-flex align-items-center gap-3">
+                <img [src]="item.imagem" [alt]="item.nome" class="cart-thumb">
+                <div>
+                  <strong>{{ item.nome }}</strong>
+                  <br><small class="text-muted">{{ item.marca }}</small>
+                </div>
+              </div>
+            </td>
+            <td>{{ item.preco | currency:'BRL' }}</td>
+            <td>
+              <div class="input-group input-group-sm" style="width: 110px;">
+                <button class="btn btn-outline-secondary" (click)="atualizarQtd(item, item.quantidade - 1)">-</button>
+                <span class="form-control text-center">{{ item.quantidade }}</span>
+                <button class="btn btn-outline-secondary" (click)="atualizarQtd(item, item.quantidade + 1)">+</button>
+              </div>
+            </td>
+            <td class="fw-bold text-danger">{{ item.preco * item.quantidade | currency:'BRL' }}</td>
+            <td>
+              <button class="btn btn-sm btn-outline-danger" (click)="remover(item.produtoId)">Remover</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-between align-items-center mt-4 gap-3">
+      <button class="btn btn-outline-secondary" (click)="limpar()">Limpar Carrinho</button>
+      <div class="text-end">
+        <p class="fs-4 mb-2">Total: <strong class="text-danger">{{ total | currency:'BRL' }}</strong></p>
+        <button class="btn btn-sh-primary btn-lg" (click)="finalizarPedido()" [disabled]="processando">
+          {{ processando ? 'Processando...' : 'Finalizar Pedido' }}
+        </button>
+      </div>
+    </div>
+
+    <div class="alert alert-sh mt-3" *ngIf="erro">{{ erro }}</div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalPedidoSucesso" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-success">✓ Pedido realizado com sucesso!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Seu pedido foi registrado. Obrigado por comprar na SneakerHouse!</p>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-sh-primary" (click)="irParaHome()">Voltar à Home</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="container py-4 pb-5">
+  <div class="auth-card" style="max-width: 640px;">
+    <h2 class="text-center mb-4 brand-font">CADASTRO</h2>
+
+    <div class="alert alert-success" *ngIf="sucesso">Cadastro realizado! Redirecionando para login...</div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!sucesso">
+      <div class="row g-3">
+        <div class="col-md-6">
+          <label class="form-label">Nome *</label>
+          <input class="form-control" formControlName="nome">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Email *</label>
+          <input type="email" class="form-control" formControlName="email">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Senha *</label>
+          <input type="password" class="form-control" formControlName="senha">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Telefone</label>
+          <input class="form-control" formControlName="telefone">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">CPF</label>
+          <input class="form-control" formControlName="cpf">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">CEP</label>
+          <input class="form-control" formControlName="cep">
+        </div>
+        <div class="col-md-8">
+          <label class="form-label">Logradouro</label>
+          <input class="form-control" formControlName="logradouro">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Número</label>
+          <input class="form-control" formControlName="numero">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Bairro</label>
+          <input class="form-control" formControlName="bairro">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Cidade</label>
+          <input class="form-control" formControlName="cidade">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label">Estado</label>
+          <input class="form-control" formControlName="estado" maxlength="2">
+        </div>
+      </div>
+
+      <div class="alert alert-sh mt-3" *ngIf="erro">{{ erro }}</div>
+
+      <button type="submit" class="btn btn-sh-primary w-100 mt-4" [disabled]="carregando">
+        {{ carregando ? 'Cadastrando...' : 'Cadastrar' }}
+      </button>
+    </form>
+
+    <p class="text-center mt-3 mb-0">Já tem conta? <a routerLink="/login" class="text-danger">Faça login</a></p>
+  </div>
+</div>

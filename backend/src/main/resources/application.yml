@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: sneakerhouse-backend
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/sneakerhouse?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Sao_Paulo
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+server:
+  port: 9032
+
+sneakerhouse:
+  jwt:
+    secret: SneakerHouseSecretKey2024JwtTokenMinimo256BitsParaSegurancaCompleta
+    expiration-ms: 86400000
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html

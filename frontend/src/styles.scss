@@ -1,0 +1,103 @@
+:root {
+  --sh-black: #0a0a0a;
+  --sh-white: #ffffff;
+  --sh-red: #e63946;
+  --sh-red-dark: #c1121f;
+  --sh-gray: #f4f4f4;
+  --sh-gray-dark: #6c757d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--sh-gray);
+  color: var(--sh-black);
+}
+
+h1, h2, h3, .brand-font {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.btn-sh-primary {
+  background: var(--sh-red);
+  border-color: var(--sh-red);
+  color: var(--sh-white);
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+
+  &:hover {
+    background: var(--sh-red-dark);
+    border-color: var(--sh-red-dark);
+    color: var(--sh-white);
+    transform: translateY(-1px);
+  }
+}
+
+.btn-sh-outline {
+  border: 2px solid var(--sh-black);
+  color: var(--sh-black);
+  font-weight: 600;
+
+  &:hover {
+    background: var(--sh-black);
+    color: var(--sh-white);
+  }
+}
+
+.card-produto {
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: var(--sh-white);
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .card-img-top {
+    height: 220px;
+    object-fit: cover;
+    background: #eee;
+  }
+
+  .preco {
+    color: var(--sh-red);
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+}
+
+.page-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.auth-card {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--sh-white);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-control:focus {
+  border-color: var(--sh-red);
+  box-shadow: 0 0 0 0.2rem rgba(230, 57, 70, 0.25);
+}
+
+.alert-sh {
+  background: rgba(230, 57, 70, 0.1);
+  border-color: var(--sh-red);
+  color: var(--sh-red-dark);
+}

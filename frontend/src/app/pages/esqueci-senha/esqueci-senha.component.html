@@ -1,0 +1,28 @@
+<div class="container py-5">
+  <div class="auth-card">
+    <h2 class="text-center mb-4 brand-font">ESQUECI SENHA</h2>
+
+    <div class="alert alert-success" *ngIf="sucesso">
+      Senha redefinida com sucesso! <a routerLink="/login" class="alert-link">Faça login</a>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!sucesso">
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="email">
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Nova Senha</label>
+        <input type="password" class="form-control" formControlName="novaSenha">
+      </div>
+
+      <div class="alert alert-sh" *ngIf="erro">{{ erro }}</div>
+
+      <button type="submit" class="btn btn-sh-primary w-100" [disabled]="carregando">
+        {{ carregando ? 'Salvando...' : 'Redefinir Senha' }}
+      </button>
+    </form>
+
+    <p class="text-center mt-4 mb-0"><a routerLink="/login">Voltar ao login</a></p>
+  </div>
+</div>

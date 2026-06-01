@@ -1,0 +1,19 @@
+<div class="container py-4 pb-5">
+  <h2 class="page-title">Busca</h2>
+  <p class="text-muted mb-4" *ngIf="termo">Resultados para: <strong>{{ termo }}</strong></p>
+  <p class="text-muted mb-4" *ngIf="!termo">Todos os produtos ativos</p>
+
+  <div *ngIf="carregando" class="text-center py-5">
+    <div class="spinner-border text-danger"></div>
+  </div>
+
+  <div class="row g-4" *ngIf="!carregando">
+    <div class="col-6 col-md-4 col-lg-3" *ngFor="let produto of produtos">
+      <app-product-card [produto]="produto"></app-product-card>
+    </div>
+  </div>
+
+  <p *ngIf="!carregando && produtos.length === 0" class="text-center text-muted py-5">
+    Nenhum produto encontrado.
+  </p>
+</div>

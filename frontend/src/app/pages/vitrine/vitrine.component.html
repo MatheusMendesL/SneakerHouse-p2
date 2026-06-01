@@ -1,0 +1,22 @@
+<app-banner></app-banner>
+
+<div class="container pb-5">
+  <h2 class="page-title">Vitrine</h2>
+
+  <div *ngIf="carregando" class="text-center py-5">
+    <div class="spinner-border text-danger" role="status"></div>
+    <p class="mt-3">Carregando produtos...</p>
+  </div>
+
+  <div *ngIf="erro" class="alert alert-sh">{{ erro }}</div>
+
+  <div class="row g-4" *ngIf="!carregando && !erro">
+    <div class="col-6 col-md-4 col-lg-3" *ngFor="let produto of produtos">
+      <app-product-card [produto]="produto"></app-product-card>
+    </div>
+  </div>
+
+  <p *ngIf="!carregando && !erro && produtos.length === 0" class="text-center text-muted py-5">
+    Nenhum produto disponível no momento.
+  </p>
+</div>

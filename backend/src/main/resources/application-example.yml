@@ -1,0 +1,6 @@
+# Copie para application-local.yml ou ajuste application.yml com suas credenciais MySQL
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/sneakerhouse?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Sao_Paulo
+    username: root
+    password: SUA_SENHA_MYSQL

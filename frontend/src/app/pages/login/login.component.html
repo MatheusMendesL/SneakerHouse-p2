@@ -1,0 +1,29 @@
+<div class="container py-5">
+  <div class="auth-card">
+    <h2 class="text-center mb-4 brand-font">LOGIN</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="seu@email.com">
+        <div class="text-danger small" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">Email inválido</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Senha</label>
+        <input type="password" class="form-control" formControlName="senha" placeholder="••••••">
+        <div class="text-danger small" *ngIf="form.get('senha')?.invalid && form.get('senha')?.touched">Senha obrigatória (mín. 6)</div>
+      </div>
+
+      <div class="alert alert-sh" *ngIf="erro">{{ erro }}</div>
+
+      <button type="submit" class="btn btn-sh-primary w-100" [disabled]="carregando">
+        {{ carregando ? 'Entrando...' : 'Entrar' }}
+      </button>
+    </form>
+
+    <div class="text-center mt-4">
+      <a routerLink="/esqueci-senha" class="text-muted">Esqueci minha senha</a>
+      <p class="mt-2 mb-0">Não tem conta? <a routerLink="/cadastro" class="text-danger fw-semibold">Cadastre-se</a></p>
+    </div>
+  </div>
+</div>
