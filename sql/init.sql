@@ -8,4 +8,4 @@ CREATE DATABASE IF NOT EXISTS sneakerhouse
 USE sneakerhouse;
 
 -- As tabelas são criadas automaticamente pelo Hibernate (ddl-auto: update)
--- Os 20 produtos iniciais são inseridos pelo DataInitializer do Spring Boot
+-- Os 3 produtos iniciais são inseridos pelo DataInitializer do Spring Boot
